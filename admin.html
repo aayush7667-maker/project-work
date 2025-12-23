@@ -10,509 +10,339 @@
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-  <!-- Background Elements -->
+  <!-- Background -->
   <div class="bg-3d"></div>
   <div class="particles-container"></div>
 
-  <!-- Admin Layout -->
-  <div class="admin-wrapper">
-    <!-- Login Section -->
-    <section id="loginSection" class="admin-auth-section active">
-      <div class="container">
-        <div class="admin-login-container">
-          <div class="admin-login-header">
-            <div class="admin-login-logo">
-              <i class="fas fa-crown"></i>
-              ScholarNexus Admin
-            </div>
-            <p class="admin-login-tagline">Manage scholarships, applications, and users</p>
+  <!-- Login Section -->
+  <section id="loginSection" class="admin-auth-section active">
+    <div class="container">
+      <div class="admin-login-container">
+        <div class="admin-login-header">
+          <div class="admin-login-logo">
+            <i class="fas fa-crown"></i>
+            ScholarNexus Admin
+          </div>
+          <p class="admin-login-tagline">Manage scholarships, applications, and users</p>
+        </div>
+        
+        <form id="adminLoginForm" class="admin-login-form">
+          <div class="admin-form-group">
+            <label for="adminLoginEmail">
+              <i class="fas fa-envelope"></i> Admin Email
+            </label>
+            <input type="email" id="adminLoginEmail" placeholder="admin@example.com" required>
           </div>
           
-          <form id="adminLoginForm" class="admin-login-form">
-            <div class="admin-form-group">
-              <label for="adminEmail">
-                <i class="fas fa-envelope"></i> Admin Email
-              </label>
-              <input type="email" id="adminEmail" placeholder="admin@scholarnexus.edu.np" required>
+          <div class="admin-form-group">
+            <label for="adminLoginPassword">
+              <i class="fas fa-lock"></i> Password
+            </label>
+            <div class="password-input">
+              <input type="password" id="adminLoginPassword" placeholder="••••••••" required>
+              <button type="button" class="toggle-password">
+                <i class="fas fa-eye"></i>
+              </button>
             </div>
-            
-            <div class="admin-form-group">
-              <label for="adminPassword">
-                <i class="fas fa-lock"></i> Password
-              </label>
-              <div class="password-input">
-                <input type="password" id="adminPassword" placeholder="••••••••" required>
-                <button type="button" class="toggle-password">
-                  <i class="fas fa-eye"></i>
-                </button>
-              </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block admin-login-btn">
+            <i class="fas fa-sign-in-alt"></i>
+            Login as Admin
+          </button>
+          
+          <div class="admin-demo-credentials">
+            <div class="demo-title">
+              <i class="fas fa-key"></i>
+              Demo Credentials
             </div>
-            
-            <div class="admin-login-options">
-              <label class="remember-me">
-                <input type="checkbox" id="rememberMeAdmin">
-                Remember me
-              </label>
-              <a href="#" class="forgot-password">Forgot Password?</a>
+            <div class="demo-creds">
+              <p><strong>Email:</strong> admin@scholarnepal.com</p>
+              <p><strong>Password:</strong> admin123</p>
             </div>
-            
-            <button type="submit" class="btn btn-primary btn-block admin-login-btn">
-              <i class="fas fa-sign-in-alt"></i>
-              Login as Admin
-            </button>
-            
-            <div class="admin-demo-credentials">
-              <div class="demo-title">
-                <i class="fas fa-key"></i>
-                Admin Credentials
-              </div>
-              <div class="demo-creds">
-                <p><strong>Email:</strong> admin@scholarnepal.com</p>
-                <p><strong>Password:</strong> admin123</p>
-              </div>
-            </div>
-            
-            <div class="admin-back-link">
-              <a href="index.html" class="btn btn-outline btn-block">
-                <i class="fas fa-arrow-left"></i>
-                Back to Student Portal
-              </a>
-            </div>
-          </form>
+          </div>
+          
+          <div class="admin-back-link">
+            <a href="index.html" class="btn btn-outline btn-block">
+              <i class="fas fa-arrow-left"></i>
+              Back to Home
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admin Dashboard -->
+  <section id="dashboardSection" class="admin-dashboard-section">
+    <!-- Sidebar -->
+    <nav class="admin-sidebar">
+      <div class="sidebar-header">
+        <div class="admin-logo">
+          <i class="fas fa-crown"></i>
+          ScholarNexus
+          <div class="logo-sub">Admin Panel</div>
         </div>
       </div>
-    </section>
+      
+      <div class="sidebar-menu">
+        <a href="#" class="sidebar-link active" data-tab="dashboard">
+          <i class="fas fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="sidebar-link" data-tab="scholarships">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Scholarships</span>
+        </a>
+        <a href="#" class="sidebar-link" data-tab="applications">
+          <i class="fas fa-paper-plane"></i>
+          <span>Applications</span>
+        </a>
+        <a href="#" class="sidebar-link" data-tab="contacts">
+          <i class="fas fa-address-book"></i>
+          <span>Contacts</span>
+        </a>
+        <a href="#" class="sidebar-link" data-tab="users">
+          <i class="fas fa-users"></i>
+          <span>Users</span>
+        </a>
+      </div>
+      
+      <div class="sidebar-footer">
+        <div class="admin-profile">
+          <div class="admin-avatar" id="adminAvatar">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <div class="admin-info">
+            <div id="adminName">Administrator</div>
+            <div id="adminEmail">admin@example.com</div>
+          </div>
+        </div>
+        <button class="btn btn-logout" id="adminLogoutBtn">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </nav>
 
-    <!-- Admin Dashboard -->
-    <section id="dashboardSection" class="admin-dashboard-section">
-      <!-- Sidebar -->
-      <nav class="admin-sidebar">
-        <div class="sidebar-header">
-          <div class="admin-logo">
-            <i class="fas fa-crown"></i>
-            ScholarNexus
-            <div class="logo-sub">Admin Panel</div>
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Dashboard Tab -->
+      <section id="dashboardTab" class="admin-tab active">
+        <div class="admin-header">
+          <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+          <div class="header-actions">
+            <button class="btn btn-primary" id="refreshStats">
+              <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+            <div class="current-time" id="currentTime">
+              <i class="fas fa-clock"></i> <span id="timeDisplay"></span>
+            </div>
           </div>
         </div>
         
-        <div class="sidebar-menu">
-          <a href="#" class="sidebar-link active" data-tab="dashboard">
-            <i class="fas fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-          <a href="#" class="sidebar-link" data-tab="scholarships">
-            <i class="fas fa-graduation-cap"></i>
-            <span>Scholarships</span>
-          </a>
-          <a href="#" class="sidebar-link" data-tab="applications">
-            <i class="fas fa-paper-plane"></i>
-            <span>Applications</span>
-          </a>
-          <a href="#" class="sidebar-link" data-tab="contacts">
-            <i class="fas fa-address-book"></i>
-            <span>Contacts</span>
-          </a>
-          <a href="#" class="sidebar-link" data-tab="users">
-            <i class="fas fa-users"></i>
-            <span>Users</span>
-          </a>
-          <a href="#" class="sidebar-link" data-tab="settings">
-            <i class="fas fa-cog"></i>
-            <span>Settings</span>
-          </a>
+        <!-- Stats Grid -->
+        <div class="admin-stats-grid">
+          <div class="stat-card stat-primary">
+            <div class="stat-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="totalScholarships">0</div>
+              <div class="stat-label">Total Scholarships</div>
+            </div>
+          </div>
+          
+          <div class="stat-card stat-success">
+            <div class="stat-icon">
+              <i class="fas fa-paper-plane"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="totalApplications">0</div>
+              <div class="stat-label">Total Applications</div>
+            </div>
+          </div>
+          
+          <div class="stat-card stat-warning">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="pendingApplications">0</div>
+              <div class="stat-label">Pending Reviews</div>
+            </div>
+          </div>
+          
+          <div class="stat-card stat-info">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="totalUsers">0</div>
+              <div class="stat-label">Total Users</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scholarships Tab -->
+      <section id="scholarshipsTab" class="admin-tab">
+        <div class="admin-header">
+          <h1><i class="fas fa-graduation-cap"></i> Manage Scholarships</h1>
+          <div class="header-actions">
+            <button class="btn btn-primary" id="addScholarshipBtn">
+              <i class="fas fa-plus"></i> Add New Scholarship
+            </button>
+          </div>
         </div>
         
-        <div class="sidebar-footer">
-          <div class="admin-profile">
-            <div class="admin-avatar" id="adminAvatar">
-              <i class="fas fa-user-shield"></i>
-            </div>
-            <div class="admin-info">
-              <div id="adminName">Administrator</div>
-              <div id="adminEmail">admin@scholarnexus.edu.np</div>
+        <!-- Filters -->
+        <div class="admin-filters">
+          <div class="filter-group">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" id="searchScholarships" placeholder="Search scholarships...">
             </div>
           </div>
-          <button class="btn btn-logout" id="adminLogoutBtn">
-            <i class="fas fa-sign-out-alt"></i> Logout
-          </button>
+          <div class="filter-group">
+            <select class="filter-select" id="filterScholarshipType">
+              <option value="all">All Types</option>
+              <option value="Government">Government</option>
+              <option value="Private">Private</option>
+              <option value="NGO">NGO</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select class="filter-select" id="filterScholarshipStatus">
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
         </div>
-      </nav>
+        
+        <!-- Scholarships Table -->
+        <div class="admin-card">
+          <div class="card-body">
+            <div class="admin-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Deadline</th>
+                    <th>Applications</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="scholarshipsTableBody">
+                  <!-- Filled by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <!-- Main Content -->
-      <main class="admin-main">
-        <!-- Dashboard Tab -->
-        <section id="dashboardTab" class="admin-tab active">
-          <div class="admin-header">
-            <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
-            <div class="header-actions">
-              <button class="btn btn-primary" id="refreshStats">
-                <i class="fas fa-sync-alt"></i> Refresh
-              </button>
-              <div class="current-time" id="currentTime">
-                <i class="fas fa-clock"></i> <span id="timeDisplay"></span>
-              </div>
+      <!-- Applications Tab -->
+      <section id="applicationsTab" class="admin-tab">
+        <div class="admin-header">
+          <h1><i class="fas fa-paper-plane"></i> Manage Applications</h1>
+          <div class="header-actions">
+            <select class="filter-select" id="filterApplicationStatus">
+              <option value="all">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="accepted">Accepted</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Applications Table -->
+        <div class="admin-card">
+          <div class="card-body">
+            <div class="admin-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <th>Scholarship</th>
+                    <th>Email</th>
+                    <th>Applied Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="applicationsTableBody">
+                  <!-- Filled by JavaScript -->
+                </tbody>
+              </table>
             </div>
           </div>
-          
-          <!-- Quick Stats -->
-          <div class="admin-stats-grid">
-            <div class="stat-card stat-primary">
-              <div class="stat-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <div class="stat-content">
-                <div class="stat-value" id="totalScholarships">0</div>
-                <div class="stat-label">Total Scholarships</div>
-              </div>
-            </div>
-            
-            <div class="stat-card stat-success">
-              <div class="stat-icon">
-                <i class="fas fa-paper-plane"></i>
-              </div>
-              <div class="stat-content">
-                <div class="stat-value" id="totalApplications">0</div>
-                <div class="stat-label">Total Applications</div>
-              </div>
-            </div>
-            
-            <div class="stat-card stat-warning">
-              <div class="stat-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div class="stat-content">
-                <div class="stat-value" id="pendingApplications">0</div>
-                <div class="stat-label">Pending Reviews</div>
-              </div>
-            </div>
-            
-            <div class="stat-card stat-info">
-              <div class="stat-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="stat-content">
-                <div class="stat-value" id="totalUsers">0</div>
-                <div class="stat-label">Total Users</div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Recent Activity -->
-          <div class="admin-card">
-            <div class="card-header">
-              <h3><i class="fas fa-history"></i> Recent Activity</h3>
-              <button class="btn btn-outline btn-sm" id="viewAllActivity">
-                View All
-              </button>
-            </div>
-            <div class="card-body">
-              <div class="activity-list" id="recentActivityList">
-                <!-- Filled by JavaScript -->
-                <div class="activity-item">
-                  <div class="activity-icon">
-                    <i class="fas fa-user-plus"></i>
-                  </div>
-                  <div class="activity-content">
-                    <p>New student registered: John Doe</p>
-                    <span class="activity-time">2 minutes ago</span>
-                  </div>
-                </div>
-                <div class="activity-item">
-                  <div class="activity-icon">
-                    <i class="fas fa-paper-plane"></i>
-                  </div>
-                  <div class="activity-content">
-                    <p>Application submitted for National Science Scholarship</p>
-                    <span class="activity-time">15 minutes ago</span>
-                  </div>
-                </div>
-                <div class="activity-item">
-                  <div class="activity-icon">
-                    <i class="fas fa-check-circle"></i>
-                  </div>
-                  <div class="activity-content">
-                    <p>Scholarship "Women in Tech Grant" created</p>
-                    <span class="activity-time">1 hour ago</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
+      </section>
 
-          <!-- Recent Applications -->
-          <div class="admin-card">
-            <div class="card-header">
-              <h3><i class="fas fa-file-alt"></i> Recent Applications</h3>
-              <button class="btn btn-outline btn-sm" id="viewAllApplications">
-                View All
-              </button>
-            </div>
-            <div class="card-body">
-              <div class="applications-table" id="recentApplicationsTable">
-                <!-- Filled by JavaScript -->
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Student</th>
-                      <th>Scholarship</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>John Doe</td>
-                      <td>National Science Scholarship</td>
-                      <td>2024-02-15</td>
-                      <td><span class="status-badge status-pending">Pending</span></td>
-                      <td>
-                        <button class="btn-action btn-view" onclick="adminPortal.viewApplication(1)">
-                          <i class="fas fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Jane Smith</td>
-                      <td>Women in Tech Grant</td>
-                      <td>2024-02-14</td>
-                      <td><span class="status-badge status-accepted">Accepted</span></td>
-                      <td>
-                        <button class="btn-action btn-view" onclick="adminPortal.viewApplication(2)">
-                          <i class="fas fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+      <!-- Contacts Tab -->
+      <section id="contactsTab" class="admin-tab">
+        <div class="admin-header">
+          <h1><i class="fas fa-address-book"></i> Contact Inquiries</h1>
+        </div>
+        
+        <!-- Contacts Table -->
+        <div class="admin-card">
+          <div class="card-body">
+            <div class="admin-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="contactsTableBody">
+                  <!-- Filled by JavaScript -->
+                </tbody>
+              </table>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Scholarships Tab -->
-        <section id="scholarshipsTab" class="admin-tab">
-          <div class="admin-header">
-            <h1><i class="fas fa-graduation-cap"></i> Manage Scholarships</h1>
-            <div class="header-actions">
-              <button class="btn btn-primary" id="addScholarshipBtn">
-                <i class="fas fa-plus"></i> Add New Scholarship
-              </button>
+      <!-- Users Tab -->
+      <section id="usersTab" class="admin-tab">
+        <div class="admin-header">
+          <h1><i class="fas fa-users"></i> User Management</h1>
+        </div>
+        
+        <!-- Users Table -->
+        <div class="admin-card">
+          <div class="card-body">
+            <div class="admin-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Joined</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                  <!-- Filled by JavaScript -->
+                </tbody>
+              </table>
             </div>
           </div>
-          
-          <!-- Filters -->
-          <div class="admin-filters">
-            <div class="filter-group">
-              <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchScholarships" placeholder="Search scholarships...">
-              </div>
-            </div>
-            <div class="filter-group">
-              <select class="filter-select" id="filterScholarshipType">
-                <option value="all">All Types</option>
-                <option value="Government">Government</option>
-                <option value="Private">Private</option>
-                <option value="NGO">NGO</option>
-              </select>
-            </div>
-            <div class="filter-group">
-              <select class="filter-select" id="filterScholarshipStatus">
-                <option value="all">All Status</option>
-                <option value="active">Active</option>
-                <option value="closed">Closed</option>
-              </select>
-            </div>
-          </div>
-          
-          <!-- Scholarships Table -->
-          <div class="admin-card">
-            <div class="card-body">
-              <div class="admin-table" id="scholarshipsTable">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Type</th>
-                      <th>Amount</th>
-                      <th>Deadline</th>
-                      <th>Applications</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="scholarshipsTableBody">
-                    <!-- Filled by JavaScript -->
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Applications Tab -->
-        <section id="applicationsTab" class="admin-tab">
-          <div class="admin-header">
-            <h1><i class="fas fa-paper-plane"></i> Manage Applications</h1>
-            <div class="header-actions">
-              <select class="filter-select" id="filterApplicationStatus">
-                <option value="all">All Status</option>
-                <option value="pending">Pending</option>
-                <option value="accepted">Accepted</option>
-                <option value="rejected">Rejected</option>
-              </select>
-            </div>
-          </div>
-          
-          <!-- Applications Table -->
-          <div class="admin-card">
-            <div class="card-body">
-              <div class="admin-table" id="applicationsTable">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Student</th>
-                      <th>Scholarship</th>
-                      <th>Email</th>
-                      <th>Applied Date</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="applicationsTableBody">
-                    <!-- Filled by JavaScript -->
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Contacts Tab -->
-        <section id="contactsTab" class="admin-tab">
-          <div class="admin-header">
-            <h1><i class="fas fa-address-book"></i> Contact Inquiries</h1>
-          </div>
-          
-          <!-- Contacts Table -->
-          <div class="admin-card">
-            <div class="card-body">
-              <div class="admin-table" id="contactsTable">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Phone</th>
-                      <th>Message</th>
-                      <th>Date</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="contactsTableBody">
-                    <!-- Filled by JavaScript -->
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Users Tab -->
-        <section id="usersTab" class="admin-tab">
-          <div class="admin-header">
-            <h1><i class="fas fa-users"></i> User Management</h1>
-          </div>
-          
-          <!-- Users Table -->
-          <div class="admin-card">
-            <div class="card-body">
-              <div class="admin-table" id="usersTable">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Role</th>
-                      <th>Joined</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="usersTableBody">
-                    <!-- Filled by JavaScript -->
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Settings Tab -->
-        <section id="settingsTab" class="admin-tab">
-          <div class="admin-header">
-            <h1><i class="fas fa-cog"></i> Settings</h1>
-          </div>
-          
-          <div class="settings-grid">
-            <div class="admin-card">
-              <div class="card-header">
-                <h3><i class="fas fa-globe"></i> General Settings</h3>
-              </div>
-              <div class="card-body">
-                <form id="generalSettingsForm">
-                  <div class="admin-form-group">
-                    <label>Portal Name</label>
-                    <input type="text" value="ScholarNexus">
-                  </div>
-                  <div class="admin-form-group">
-                    <label>Contact Email</label>
-                    <input type="email" value="info@scholarnexus.edu.np">
-                  </div>
-                  <div class="admin-form-group">
-                    <label>Admin Email</label>
-                    <input type="email" value="admin@scholarnexus.edu.np">
-                  </div>
-                  <button type="submit" class="btn btn-primary">
-                    Save Changes
-                  </button>
-                </form>
-              </div>
-            </div>
-            
-            <div class="admin-card">
-              <div class="card-header">
-                <h3><i class="fas fa-graduation-cap"></i> Scholarship Settings</h3>
-              </div>
-              <div class="card-body">
-                <form id="scholarshipSettingsForm">
-                  <div class="admin-form-group">
-                    <label>Default Deadline (days)</label>
-                    <input type="number" value="30">
-                  </div>
-                  <div class="admin-form-group">
-                    <label>Max Applications per Student</label>
-                    <input type="number" value="5">
-                  </div>
-                  <div class="admin-form-group">
-                    <label>Auto-close scholarships after deadline</label>
-                    <select>
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                    </select>
-                  </div>
-                  <button type="submit" class="btn btn-primary">
-                    Save Changes
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </section>
-  </div>
+        </div>
+      </section>
+    </main>
+  </section>
 
   <!-- Add Scholarship Modal -->
   <div class="modal" id="addScholarshipModal">
@@ -601,7 +431,6 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.0/dist/gsap.min.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>

@@ -102,11 +102,11 @@ CREATE TABLE IF NOT EXISTS notifications (
 
 -- Insert default admin user (password: admin123)
 INSERT IGNORE INTO users (name, email, password, role) 
-VALUES ('Administrator', 'admin@scholarnepal.com', '$2y$10$YourHashedPasswordHere', 'admin');
+VALUES ('Administrator', 'admin@scholarnepal.com', '$2b$12$SczCrrarj7FZUi4ek8S7yOv/Q.Zie1Wqn8ITMOSLvDniRZBTgJeiy', 'admin');
 
 -- Insert sample student (password: demo123)
 INSERT IGNORE INTO users (name, email, password, role)
-VALUES ('Demo Student', 'student@demo.com', '$2y$10$YourHashedPasswordHere', 'student');
+VALUES ('Demo Student', 'student@demo.com', '$2b$12$.Yn06uKXZDZSPnEnhOD0/e8QzpUPHUH9XxRyRgS97Z9FN/87BdsUC', 'student');
 
 -- Insert sample scholarships
 INSERT IGNORE INTO scholarships (admin_id, title, description, scholarship_type, eligibility, deadline, amount, status) VALUES

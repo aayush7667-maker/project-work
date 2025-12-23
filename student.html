@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,41 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="student.css">
-  <style>
-    /* Override student styles to match home page */
-    .student-dashboard {
-      background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%) !important;
-    }
-    
-    .student-navbar {
-      background: var(--glass-dark) !important;
-      backdrop-filter: blur(20px) !important;
-      border-bottom: 1px solid var(--border) !important;
-    }
-    
-    .student-stat-card,
-    .quick-action-card,
-    .student-scholarship-card {
-      background: var(--glass) !important;
-      backdrop-filter: blur(20px) !important;
-      border: 1px solid var(--border) !important;
-    }
-    
-    .welcome-banner {
-      background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
-    }
-    
-    /* Update student portal to use home page color scheme */
-    :root {
-      --student-primary: var(--primary);
-      --student-secondary: var(--secondary);
-      --student-accent: var(--accent);
-      --student-dark: var(--dark);
-    }
-  </style>
 </head>
 <body>
-  <!-- Background Elements -->
+  <!-- Background -->
   <div class="bg-3d"></div>
   <div class="particles-container"></div>
   
@@ -67,12 +37,6 @@
           <li><a href="#profile" class="student-nav-link" data-tab="profile">
             <i class="fas fa-user"></i> Profile
           </a></li>
-          <li class="notification-bell">
-            <a href="#notifications" class="student-nav-link">
-              <i class="fas fa-bell"></i>
-              <span class="notification-count" id="notificationCount">3</span>
-            </a>
-          </li>
         </ul>
         
         <div class="user-menu">
@@ -100,18 +64,8 @@
       <!-- Welcome Banner -->
       <div class="welcome-banner">
         <div class="welcome-content">
-          <h1 class="welcome-title" id="welcomeMessage">Welcome back, John!</h1>
+          <h1 class="welcome-title" id="welcomeMessage">Welcome back!</h1>
           <p class="welcome-subtitle">Track your scholarship applications and discover new opportunities</p>
-          <div class="welcome-stats">
-            <div class="welcome-stat">
-              <i class="fas fa-calendar-check"></i>
-              <span>Next deadline: <strong>April 30, 2024</strong></span>
-            </div>
-            <div class="welcome-stat">
-              <i class="fas fa-clock"></i>
-              <span>Pending applications: <strong id="pendingCount">3</strong></span>
-            </div>
-          </div>
         </div>
       </div>
       
@@ -124,7 +78,7 @@
               <div class="stat-icon-wrapper">
                 <i class="fas fa-paper-plane"></i>
               </div>
-              <div class="stat-value-large" id="totalApplied">12</div>
+              <div class="stat-value-large" id="totalApplied">0</div>
               <div class="stat-label-large">Total Applied</div>
             </div>
             
@@ -132,7 +86,7 @@
               <div class="stat-icon-wrapper">
                 <i class="fas fa-clock"></i>
               </div>
-              <div class="stat-value-large" id="pendingApplications">3</div>
+              <div class="stat-value-large" id="pendingApplications">0</div>
               <div class="stat-label-large">Pending</div>
             </div>
             
@@ -140,7 +94,7 @@
               <div class="stat-icon-wrapper">
                 <i class="fas fa-check-circle"></i>
               </div>
-              <div class="stat-value-large" id="acceptedApplications">2</div>
+              <div class="stat-value-large" id="acceptedApplications">0</div>
               <div class="stat-label-large">Accepted</div>
             </div>
             
@@ -148,64 +102,8 @@
               <div class="stat-icon-wrapper">
                 <i class="fas fa-graduation-cap"></i>
               </div>
-              <div class="stat-value-large" id="availableScholarships">45</div>
+              <div class="stat-value-large" id="availableScholarships">0</div>
               <div class="stat-label-large">Available</div>
-            </div>
-          </div>
-          
-          <!-- Quick Actions -->
-          <div class="quick-actions-grid">
-            <div class="quick-action-card" data-action="search">
-              <div class="action-icon">
-                <i class="fas fa-search"></i>
-              </div>
-              <h3 class="action-title">Find Scholarships</h3>
-              <p class="action-description">Browse available scholarships with advanced filters</p>
-            </div>
-            
-            <div class="quick-action-card" data-action="apply">
-              <div class="action-icon">
-                <i class="fas fa-edit"></i>
-              </div>
-              <h3 class="action-title">Apply Now</h3>
-              <p class="action-description">Submit applications for new scholarships</p>
-            </div>
-            
-            <div class="quick-action-card" data-action="track">
-              <div class="action-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <h3 class="action-title">Track Progress</h3>
-              <p class="action-description">Monitor your application status</p>
-            </div>
-            
-            <div class="quick-action-card" data-action="profile">
-              <div class="action-icon">
-                <i class="fas fa-user-edit"></i>
-              </div>
-              <h3 class="action-title">Update Profile</h3>
-              <p class="action-description">Keep your information current</p>
-            </div>
-          </div>
-          
-          <!-- Upcoming Deadlines -->
-          <div class="admin-table-container">
-            <div class="table-header">
-              <h3>Upcoming Deadlines</h3>
-              <a href="#scholarships" class="btn-admin btn-view">View All</a>
-            </div>
-            <div class="deadlines-list" id="upcomingDeadlines">
-              <!-- Filled by JavaScript -->
-            </div>
-          </div>
-          
-          <!-- Recent Activity -->
-          <div class="admin-table-container">
-            <div class="table-header">
-              <h3>Recent Activity</h3>
-            </div>
-            <div class="activity-list" id="recentActivity">
-              <!-- Filled by JavaScript -->
             </div>
           </div>
         </section>
@@ -225,7 +123,6 @@
           <!-- Filters -->
           <div class="admin-filters">
             <div class="filter-group">
-              <label>Type:</label>
               <select class="filter-select" id="filterType">
                 <option value="all">All Types</option>
                 <option value="Government">Government</option>
@@ -235,21 +132,10 @@
             </div>
             
             <div class="filter-group">
-              <label>Sort by:</label>
               <select class="filter-select" id="sortBy">
+                <option value="newest">Newest</option>
                 <option value="deadline">Deadline</option>
                 <option value="amount">Amount</option>
-                <option value="newest">Newest</option>
-              </select>
-            </div>
-            
-            <div class="filter-group">
-              <label>Eligibility:</label>
-              <select class="filter-select" id="filterEligibility">
-                <option value="all">All</option>
-                <option value="undergraduate">Undergraduate</option>
-                <option value="graduate">Graduate</option>
-                <option value="merit">Merit-based</option>
               </select>
             </div>
           </div>
@@ -258,13 +144,6 @@
           <div class="scholarships-grid" id="studentScholarshipsGrid">
             <!-- Filled by JavaScript -->
           </div>
-          
-          <div class="load-more">
-            <button class="btn btn-outline" id="loadMoreScholarships">
-              <span>Load More Scholarships</span>
-              <i class="fas fa-sync-alt"></i>
-            </button>
-          </div>
         </section>
         
         <!-- Applications Tab -->
@@ -272,15 +151,12 @@
           <div class="dashboard-header">
             <h1>My Applications</h1>
             <div class="dashboard-actions">
-              <div class="filter-group">
-                <label>Status:</label>
-                <select class="filter-select" id="filterApplicationStatus">
-                  <option value="all">All Status</option>
-                  <option value="pending">Pending</option>
-                  <option value="accepted">Accepted</option>
-                  <option value="rejected">Rejected</option>
-                </select>
-              </div>
+              <select class="filter-select" id="filterApplicationStatus">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="accepted">Accepted</option>
+                <option value="rejected">Rejected</option>
+              </select>
             </div>
           </div>
           
@@ -295,23 +171,11 @@
           <div class="profile-section">
             <div class="profile-header">
               <div class="profile-avatar" id="studentProfileAvatar">
-                <span>JD</span>
-                <div class="avatar-status"></div>
+                <span>ST</span>
               </div>
               <div class="profile-info">
-                <h2 id="studentProfileName">John Doe</h2>
-                <p id="studentProfileEmail">john.doe@student.edu.np</p>
-                <div class="profile-badges">
-                  <span class="profile-badge">
-                    <i class="fas fa-star"></i> Active Student
-                  </span>
-                  <span class="profile-badge">
-                    <i class="fas fa-award"></i> 3 Scholarships
-                  </span>
-                  <span class="profile-badge">
-                    <i class="fas fa-check-circle"></i> Verified
-                  </span>
-                </div>
+                <h2 id="studentProfileName">Student Name</h2>
+                <p id="studentProfileEmail">student@example.com</p>
               </div>
             </div>
             
@@ -319,12 +183,12 @@
               <div class="admin-form-grid">
                 <div class="admin-form-group">
                   <label><i class="fas fa-user"></i> Full Name</label>
-                  <input type="text" id="profileName" value="John Doe">
+                  <input type="text" id="profileName" required>
                 </div>
                 
                 <div class="admin-form-group">
                   <label><i class="fas fa-envelope"></i> Email</label>
-                  <input type="email" id="profileEmail" value="john.doe@student.edu.np" disabled>
+                  <input type="email" id="profileEmail" disabled>
                 </div>
                 
                 <div class="admin-form-group">
@@ -338,71 +202,22 @@
                 </div>
                 
                 <div class="admin-form-group full-width">
-                  <label><i class="fas fa-graduation-cap"></i> Education Level</label>
-                  <select id="profileEducation">
-                    <option value="">Select Education Level</option>
-                    <option value="highschool">High School</option>
-                    <option value="bachelor">Bachelor's Degree</option>
-                    <option value="master" selected>Master's Degree</option>
-                    <option value="phd">PhD</option>
-                  </select>
+                  <label><i class="fas fa-graduation-cap"></i> Education</label>
+                  <input type="text" id="profileEducation" placeholder="Bachelor's Degree">
                 </div>
                 
                 <div class="admin-form-group full-width">
-                  <label><i class="fas fa-book"></i> Major/Field of Study</label>
-                  <input type="text" id="profileMajor" placeholder="Computer Science">
-                </div>
-                
-                <div class="admin-form-group full-width">
-                  <label><i class="fas fa-university"></i> Institution</label>
-                  <input type="text" id="profileInstitution" placeholder="Tribhuvan University">
-                </div>
-                
-                <div class="admin-form-group full-width">
-                  <label><i class="fas fa-tools"></i> Skills & Qualifications</label>
-                  <textarea id="profileSkills" rows="3" placeholder="List your skills, certifications, and achievements"></textarea>
-                </div>
-                
-                <div class="admin-form-group full-width">
-                  <label><i class="fas fa-file-alt"></i> Additional Information</label>
-                  <textarea id="profileAdditional" rows="3" placeholder="Any other relevant information"></textarea>
+                  <label><i class="fas fa-tools"></i> Skills</label>
+                  <textarea id="profileSkills" rows="3" placeholder="Your skills and qualifications"></textarea>
                 </div>
               </div>
               
               <div class="modal-actions">
-                <button type="submit" class="btn-admin btn-primary">
+                <button type="submit" class="btn btn-primary">
                   <i class="fas fa-save"></i> Save Profile
-                </button>
-                <button type="button" class="btn-admin btn-secondary" id="cancelProfile">
-                  Cancel
                 </button>
               </div>
             </form>
-            
-            <!-- Account Settings -->
-            <div class="settings-card">
-              <h3>Account Settings</h3>
-              <form id="accountSettingsForm">
-                <div class="admin-form-group">
-                  <label><i class="fas fa-lock"></i> Change Password</label>
-                  <input type="password" id="currentPassword" placeholder="Current Password">
-                </div>
-                
-                <div class="admin-form-group">
-                  <label><i class="fas fa-lock"></i> New Password</label>
-                  <input type="password" id="newPassword" placeholder="New Password">
-                </div>
-                
-                <div class="admin-form-group">
-                  <label><i class="fas fa-lock"></i> Confirm Password</label>
-                  <input type="password" id="confirmPassword" placeholder="Confirm Password">
-                </div>
-                
-                <button type="submit" class="btn-admin btn-primary">
-                  Update Password
-                </button>
-              </form>
-            </div>
           </div>
         </section>
       </div>
@@ -410,10 +225,10 @@
   </main>
 
   <!-- Application Modal -->
-  <div class="student-modal" id="applicationModal">
-    <div class="student-modal-content">
+  <div class="modal" id="applicationModal">
+    <div class="modal-content">
       <div class="modal-header">
-        <h3>Apply for Scholarship</h3>
+        <h2>Apply for Scholarship</h2>
         <button class="modal-close" id="closeApplicationModal">
           <i class="fas fa-times"></i>
         </button>
@@ -427,34 +242,21 @@
         <form id="applicationForm">
           <div class="admin-form-group">
             <label><i class="fas fa-file-alt"></i> Application Message</label>
-            <textarea id="applicationMessage" rows="4" placeholder="Write your application letter here..."></textarea>
-            <small>Explain why you're a good candidate for this scholarship</small>
-          </div>
-          
-          <div class="admin-form-group">
-            <label><i class="fas fa-paperclip"></i> Upload Documents</label>
-            <div class="file-upload">
-              <input type="file" id="documentUpload" multiple accept=".pdf,.doc,.docx">
-              <label for="documentUpload" class="file-upload-label">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <span>Upload your documents (PDF, DOC)</span>
-              </label>
-              <div class="file-list" id="fileList"></div>
-            </div>
+            <textarea id="applicationMessage" rows="4" placeholder="Why are you a good candidate?" required></textarea>
           </div>
           
           <div class="admin-form-group">
             <label class="checkbox">
               <input type="checkbox" id="confirmDetails" required>
-              <span>I confirm that all information provided is accurate and complete</span>
+              <span>I confirm all information is accurate</span>
             </label>
           </div>
           
           <div class="modal-actions">
-            <button type="submit" class="btn-admin btn-primary">
+            <button type="submit" class="btn btn-primary">
               <i class="fas fa-paper-plane"></i> Submit Application
             </button>
-            <button type="button" class="btn-admin btn-secondary" id="cancelApplication">
+            <button type="button" class="btn btn-outline" id="cancelApplication">
               Cancel
             </button>
           </div>
@@ -463,38 +265,10 @@
     </div>
   </div>
 
-  <!-- View Scholarship Modal -->
-  <div class="student-modal" id="viewScholarshipModal">
-    <div class="student-modal-content">
-      <div class="modal-header">
-        <h3 id="scholarshipModalTitle"></h3>
-        <button class="modal-close" id="closeViewModal">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      
-      <div class="modal-body">
-        <div class="scholarship-details-modal" id="scholarshipDetailsModal">
-          <!-- Filled by JavaScript -->
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.0/dist/ScrollTrigger.min.js"></script>
   <script src="student.js"></script>
-<script>
-// Debug script
-console.log('=== STUDENT PAGE DEBUG ===');
-console.log('URL:', window.location.href);
-console.log('localStorage scholarship_user:', localStorage.getItem('scholarship_user'));
-console.log('localStorage is_logged_in:', localStorage.getItem('is_logged_in'));
-console.log('=== END DEBUG ===');
-</script>
 </body>
 </html>
